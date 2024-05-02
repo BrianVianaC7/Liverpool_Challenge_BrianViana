@@ -36,7 +36,7 @@ class ProductsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.apply {
             lvColorContainer.removeAllViews()
             product.variantsColor.forEach {
-                it.colorHex?.let { colorHex ->
+                if (!it.colorHex.isNullOrEmpty()) {
                     val colorView = View(itemView.context)
                     colorView.layoutParams = LinearLayout.LayoutParams(
                         52,
@@ -45,10 +45,11 @@ class ProductsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                     colorView.background = ContextCompat.getDrawable(itemView.context, R.drawable.ic_color)?.mutate()
                     (colorView.background as GradientDrawable).setColor(Color.parseColor(it.colorHex))
                     lvColorContainer.addView(colorView)
+                } else {
+                    lvColorContainer.visibility = View.GONE
                 }
             }
         }
-
     }
 
 }

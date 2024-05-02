@@ -6,6 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.activity.addCallback
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
@@ -15,6 +19,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.liverpool_challenge_brianviana.R
+import com.example.liverpool_challenge_brianviana.data.network.response.PlpResultsResponse
 import com.example.liverpool_challenge_brianviana.data.network.response.SortResponse
 import com.example.liverpool_challenge_brianviana.databinding.FragmentProductsBinding
 import com.example.liverpool_challenge_brianviana.ui.products.adapter.ProductsAdapter
@@ -30,7 +35,8 @@ class ProductsFragment : Fragment() {
     private var _binding: FragmentProductsBinding? = null
     private val binding get() = _binding!!
     private var isLoading = false
-    private var sortOption: SortResponse = SortResponse()
+    private var sortOption: PlpResultsResponse = PlpResultsResponse()
+    private var isActivate = false
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,8 +49,15 @@ class ProductsFragment : Fragment() {
         initUIState()
         initRecyclerView()
         initFilter()
-        //initSort()
+        initListener()
         initLoader()
+    }
+
+    private fun initListener() {
+        val sortFilter = activity?.findViewById<ImageView>(R.id.ivFilter)
+        sortFilter?.setOnClickListener {
+            initSort()
+        }
     }
 
     private fun initProducts() {
@@ -82,7 +95,9 @@ class ProductsFragment : Fragment() {
                     if (!isLoading && totalItemCount <= (firstVisibleItem + visibleItemCount)) {
                         isLoading = true
                         productViewModel.loadMoreProducts(
-                            sortOption.label.toString()
+                            sortOption.sortOptions.forEach {
+                                it.label
+                            }.toString()
                         )
                     }
                     isLoading = false
@@ -98,11 +113,21 @@ class ProductsFragment : Fragment() {
                 products.productDisplayName!!.lowercase().contains(productFilter.toString().trim().lowercase())
             }
             productsAdapter.updateList(filteredList)
+            binding.isEmptyProducts.isVisible = filteredList.isEmpty()
         }
     }
 
     private fun initSort() {
-
+        val sortOptions = sortOption.sortOptions.map { it.label }.toTypedArray()
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Select Sorting Option")
+        builder.setItems(sortOptions) { dialog, which ->
+            val selectedOption = sortOption.sortOptions[which].label ?: ""
+            productViewModel.getAllProducts(selectedOption)
+            dialog.dismiss()
+        }
+        val dialog = builder.create()
+        dialog.show()
     }
 
 
@@ -112,6 +137,7 @@ class ProductsFragment : Fragment() {
                 productViewModel.isLoading.collect { loading ->
                     if (loading) {
                         binding.pbar.isVisible = true
+                        binding.isEmptyProducts.isVisible = false
                     } else {
                         binding.pbar.isVisible = false
                     }

@@ -57,23 +57,30 @@
                 android:textSize="14sp"
                 tools:text="@string/liverpoolapp" />
 
-            <LinearLayout
-                android:id="@+id/lvColorContainer"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:scrollbars="none"
+                android:padding="5dp"
+                android:layout_marginTop="10dp">
 
-                <View
-                    android:id="@+id/vColorItem"
-                    android:layout_width="22dp"
-                    android:layout_height="20dp"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:layout_marginStart="5dp"
-                    android:background="@drawable/ic_color" />
-            </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/lvColorContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
+                    <View
+                        android:id="@+id/vColorItem"
+                        android:layout_width="22dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="5dp"
+                        android:background="@drawable/ic_color"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+                </LinearLayout>
+
+            </HorizontalScrollView>
 
         </LinearLayout>
 
