@@ -7,9 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.activity.addCallback
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
@@ -19,10 +17,9 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.liverpool_challenge_brianviana.R
-import com.example.liverpool_challenge_brianviana.data.network.response.PlpResultsResponse
-import com.example.liverpool_challenge_brianviana.data.network.response.SortResponse
 import com.example.liverpool_challenge_brianviana.databinding.FragmentProductsBinding
 import com.example.liverpool_challenge_brianviana.ui.products.adapter.ProductsAdapter
+import com.example.liverpool_challenge_brianviana.ui.utils.SortOptions
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -35,8 +32,9 @@ class ProductsFragment : Fragment() {
     private var _binding: FragmentProductsBinding? = null
     private val binding get() = _binding!!
     private var isLoading = false
-    private var sortOption: PlpResultsResponse = PlpResultsResponse()
     private var isActivate = false
+    private var currentSortOption: SortOptions = SortOptions.PREDEFINED
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -94,11 +92,7 @@ class ProductsFragment : Fragment() {
 
                     if (!isLoading && totalItemCount <= (firstVisibleItem + visibleItemCount)) {
                         isLoading = true
-                        productViewModel.loadMoreProducts(
-                            sortOption.sortOptions.forEach {
-                                it.label
-                            }.toString()
-                        )
+                        productViewModel.loadMoreProducts(currentSortOption.value)
                     }
                     isLoading = false
                 }
@@ -118,16 +112,19 @@ class ProductsFragment : Fragment() {
     }
 
     private fun initSort() {
-        val sortOptions = sortOption.sortOptions.map { it.label }.toTypedArray()
+        val options = SortOptions.entries.map { it.value }.toTypedArray()
+
         val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Select Sorting Option")
-        builder.setItems(sortOptions) { dialog, which ->
-            val selectedOption = sortOption.sortOptions[which].label ?: ""
-            productViewModel.getAllProducts(selectedOption)
-            dialog.dismiss()
-        }
-        val dialog = builder.create()
-        dialog.show()
+        builder.setTitle("Selecciona un filtro")
+            .setItems(options) { dialog, which ->
+                currentSortOption = SortOptions.entries.toTypedArray()[which]
+                productViewModel.getAllProducts(currentSortOption.value)
+                binding.rvProducts.layoutManager?.scrollToPosition(0)
+                dialog.dismiss()
+            }.setNegativeButton("Cancelar") { dialog, _ ->
+                dialog.dismiss()
+            }
+        builder.create().show()
     }
 
 
