@@ -3,10 +3,8 @@ package com.example.liverpool_challenge_brianviana.ui.products
 import com.example.liverpool_challenge_brianviana.domain.model.RecordModel
 import com.example.liverpool_challenge_brianviana.domain.usecase.GetAllProductUseCase
 import com.example.liverpool_challenge_brianviana.ui.utils.SortOptions
-import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
-import io.mockk.impl.annotations.MockK
 import io.mockk.impl.annotations.RelaxedMockK
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
@@ -44,7 +42,7 @@ class ProductsViewModelTest {
     private lateinit var productsViewModel: ProductsViewModel
 
     private val expectedProducts = listOf(RecordModel(), RecordModel())
-    val sortOption = SortOptions.RELEVANCE.toString()
+    private val sortOption = SortOptions.RELEVANCE.toString()
 
     @Before
     fun setUp() {
