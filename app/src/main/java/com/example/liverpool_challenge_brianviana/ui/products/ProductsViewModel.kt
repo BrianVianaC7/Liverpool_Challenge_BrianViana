@@ -20,8 +20,8 @@ class ProductsViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> get() = _isLoading
     private var page = 1
-    private val MAX_PAGES = 1
-    private val PAGE_SIZE = 40
+    private val maxPages = 250
+    private val pageSize = 40
 
     fun getAllProducts(
         sortOption: String
@@ -32,7 +32,7 @@ class ProductsViewModel @Inject constructor(
                 val productsFromApi = getAllProductUseCase(
                     page,
                     sortOption,
-                    PAGE_SIZE,
+                    pageSize,
                 )
                 _products.value = productsFromApi
             } catch (e: Exception) {
@@ -50,11 +50,11 @@ class ProductsViewModel @Inject constructor(
     ) {
         viewModelScope.launch {
             try {
-                if (page <= MAX_PAGES) {
+                if (page <= maxPages) {
                     val productsFromApi = getAllProductUseCase(
                         page,
                         sortOption,
-                        PAGE_SIZE,
+                        pageSize,
                     )
                     _products.value += productsFromApi
                 }

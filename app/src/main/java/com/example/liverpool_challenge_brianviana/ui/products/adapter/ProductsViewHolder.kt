@@ -1,7 +1,6 @@
 package com.example.liverpool_challenge_brianviana.ui.products.adapter
 
 import android.graphics.Color
-import android.graphics.Paint
 import android.graphics.drawable.GradientDrawable
 import android.view.View
 import android.widget.LinearLayout

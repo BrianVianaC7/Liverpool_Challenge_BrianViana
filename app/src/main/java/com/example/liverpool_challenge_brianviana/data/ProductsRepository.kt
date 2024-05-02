@@ -2,8 +2,6 @@ package com.example.liverpool_challenge_brianviana.data
 
 import com.example.liverpool_challenge_brianviana.data.network.ProductService
 import com.example.liverpool_challenge_brianviana.data.network.response.RecordsResponse
-import com.example.liverpool_challenge_brianviana.data.network.response.ResultResponse
-import com.example.liverpool_challenge_brianviana.data.network.response.SortResponse
 import com.example.liverpool_challenge_brianviana.domain.model.RecordModel
 import com.example.liverpool_challenge_brianviana.domain.model.toDomain
 import javax.inject.Inject

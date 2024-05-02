@@ -1,7 +1,6 @@
 package com.example.liverpool_challenge_brianviana.data.network
 
 import com.example.liverpool_challenge_brianviana.data.network.response.ResultResponse
-import com.example.liverpool_challenge_brianviana.data.network.response.SortResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

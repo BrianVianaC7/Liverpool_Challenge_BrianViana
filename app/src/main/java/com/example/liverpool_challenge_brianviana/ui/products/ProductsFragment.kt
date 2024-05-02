@@ -32,7 +32,6 @@ class ProductsFragment : Fragment() {
     private var _binding: FragmentProductsBinding? = null
     private val binding get() = _binding!!
     private var isLoading = false
-    private var isActivate = false
     private var currentSortOption: SortOptions = SortOptions.PREDEFINED
 
 

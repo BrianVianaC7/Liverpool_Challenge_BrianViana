@@ -1,7 +1,6 @@
 package com.example.liverpool_challenge_brianviana.domain.usecase
 
 import com.example.liverpool_challenge_brianviana.data.ProductsRepository
-import com.example.liverpool_challenge_brianviana.data.network.response.SortResponse
 import javax.inject.Inject
 
 class GetAllProductUseCase @Inject constructor(

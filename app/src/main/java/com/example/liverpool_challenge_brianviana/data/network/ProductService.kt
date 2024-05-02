@@ -2,7 +2,6 @@ package com.example.liverpool_challenge_brianviana.data.network
 
 import com.example.liverpool_challenge_brianviana.data.network.response.RecordsResponse
 import com.example.liverpool_challenge_brianviana.data.network.response.ResultResponse
-import com.example.liverpool_challenge_brianviana.data.network.response.SortResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
