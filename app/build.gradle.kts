@@ -92,6 +92,8 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     testImplementation ("io.kotlintest:kotlintest-runner-junit5:3.4.2")
     testImplementation ("io.mockk:mockk:1.12.3")
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+
 
     //UITesting
     androidTestImplementation("androidx.test.espresso:espresso-contrib:3.5.1")
