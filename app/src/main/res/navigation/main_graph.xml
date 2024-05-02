@@ -10,4 +10,9 @@
         android:name="com.example.liverpool_challenge_brianviana.ui.products.ProductsFragment"
         android:label="fragment_products"
         tools:layout="@layout/fragment_products" />
+    <dialog
+        android:id="@+id/sortFragment"
+        android:name="com.example.liverpool_challenge_brianviana.ui.dialog.SortFragment"
+        android:label="fragment_sort"
+        tools:layout="@layout/fragment_sort" />
 </navigation>

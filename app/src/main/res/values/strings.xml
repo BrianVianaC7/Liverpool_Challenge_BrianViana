@@ -5,4 +5,5 @@
     <string name="liverpoolapp">LiverpoolApp</string>
     <string name="buscar">Buscar</string>
     <string name="no_hay_productos">No hay productos</string>
+    <string name="filtro">Filtro</string>
 </resources>

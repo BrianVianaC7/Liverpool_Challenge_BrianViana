@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
@@ -18,6 +17,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.liverpool_challenge_brianviana.R
 import com.example.liverpool_challenge_brianviana.databinding.FragmentProductsBinding
+import com.example.liverpool_challenge_brianviana.ui.dialog.SortFragment
 import com.example.liverpool_challenge_brianviana.ui.products.adapter.ProductsAdapter
 import com.example.liverpool_challenge_brianviana.ui.utils.SortOptions
 import dagger.hilt.android.AndroidEntryPoint
@@ -112,20 +112,15 @@ class ProductsFragment : Fragment() {
     }
 
     private fun initSort() {
-        val options = SortOptions.entries.map { it.value }.toTypedArray()
-
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Selecciona un filtro")
-            .setItems(options) { dialog, which ->
-                currentSortOption = SortOptions.entries.toTypedArray()[which]
-                productViewModel.getAllProducts(currentSortOption.value)
-                binding.rvProducts.layoutManager?.scrollToPosition(0)
-                dialog.dismiss()
-            }.setNegativeButton("Cancelar") { dialog, _ ->
-                dialog.dismiss()
-            }
-        builder.create().show()
+        val sortFragment = SortFragment()
+        sortFragment.onSortOptionSelected = { sortOption ->
+            currentSortOption = sortOption
+            productViewModel.getAllProducts(currentSortOption.value)
+            binding.rvProducts.layoutManager?.scrollToPosition(0)
+        }
+        sortFragment.show(requireActivity().supportFragmentManager, "SortFragment")
     }
+
 
 
     private fun initLoader() {
