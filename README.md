@@ -25,6 +25,9 @@
 
   <h2>Criterios de Evaluación</h2>
     <p>El desarrollo de LiverpoolApp se adhiere a los siguientes criterios: Implementación de los principios SOLID y prácticas de Código Limpio, Clean Architecture,  Utilización de la arquitectura MVVM, Diseño organizado y estructurado del proyecto, e Implementación funcional que cumple con los requisitos especificados.</p>
+    <h2>Pruebas Unitarias</h2>
+<p>Se realizaron pruebas unitarias para asegurar cada flujo importante de LiverpoolApp. Estas pruebas garantizan la estabilidad y el correcto funcionamiento de la aplicación en diferentes escenarios y condiciones.</p>
+
 
   <hr>
 
