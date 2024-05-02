@@ -11,11 +11,7 @@
         <li>Retrofit</li>
         <li>Dagger Hilt</li>
         <li>Navigation Component</li>
-        <li>Lottie</li>
         <li>Picasso</li>
-        <li>CameraX</li>
-        <li>Swipe Refresh Layout</li>
-        <li>Firebase</li>
         <li>junit</li>
         <li>mockk</li>
         <li>coroutines-test</li>
