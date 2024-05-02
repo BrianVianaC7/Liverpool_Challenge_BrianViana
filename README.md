@@ -35,12 +35,32 @@
 
 <p>Vistas</p>
 <a href="https://github.com/BrianVianaC7/StoriBrianVianaChallenge">
-    <img src="https://github.com/BrianVianaC7/StoriBrianVianaChallenge/assets/120147778/aa9b7174-cccb-4c2a-b262-6532e4e48e35">
+    <img src="https://github.com/BrianVianaC7/Liverpool_Challenge_BrianViana/assets/120147778/8ede6471-81e4-4e4b-85ef-3852752b99f9">
 </a>
 <a href="https://github.com/BrianVianaC7/StoriBrianVianaChallenge">
-    <img src="https://github.com/BrianVianaC7/StoriBrianVianaChallenge/assets/120147778/aa9b7174-cccb-4c2a-b262-6532e4e48e35">
+    <img src="https://github.com/BrianVianaC7/Liverpool_Challenge_BrianViana/assets/120147778/2de95fb9-dddd-4ce2-a8c2-d361f17897ee">
 </a>
-
+<a href="https://github.com/BrianVianaC7/StoriBrianVianaChallenge">
+    <img src="https://github.com/BrianVianaC7/Liverpool_Challenge_BrianViana/assets/120147778/6011865e-9dc9-4d5b-8778-be25084d1a48">
+</a>
+<a href="https://github.com/BrianVianaC7/StoriBrianVianaChallenge">
+    <img src="https://github.com/BrianVianaC7/Liverpool_Challenge_BrianViana/assets/120147778/000d2218-eb85-4a8b-adaa-05469092f5f9">
+</a>
+<a href="https://github.com/BrianVianaC7/StoriBrianVianaChallenge">
+    <img src="https://github.com/BrianVianaC7/Liverpool_Challenge_BrianViana/assets/120147778/2b6d8989-26e5-42ba-b52b-45e50125b085">
+</a>
+<a href="https://github.com/BrianVianaC7/StoriBrianVianaChallenge">
+    <img src="https://github.com/BrianVianaC7/Liverpool_Challenge_BrianViana/assets/120147778/b2087d85-5268-4ce5-bd49-86013cc7acf8">
+</a>
+<a href="https://github.com/BrianVianaC7/StoriBrianVianaChallenge">
+    <img src="https://github.com/BrianVianaC7/Liverpool_Challenge_BrianViana/assets/120147778/2f98f633-85ab-49ca-b178-a88c45fd08c0">
+</a>
+<a href="https://github.com/BrianVianaC7/StoriBrianVianaChallenge">
+    <img src="https://github.com/BrianVianaC7/Liverpool_Challenge_BrianViana/assets/120147778/c3aff54a-e85e-4ca3-8dc9-8b61ecb513d9">
+</a>
+<a href="https://github.com/BrianVianaC7/StoriBrianVianaChallenge">
+    <img src="https://github.com/BrianVianaC7/Liverpool_Challenge_BrianViana/assets/120147778/78b9a8a2-1010-4c7e-917a-d267f1999eca">
+</a>
 <hr>
 
 
