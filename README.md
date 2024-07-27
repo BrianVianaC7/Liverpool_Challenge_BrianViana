@@ -1,5 +1,7 @@
 <h1>LiverpoolApp</h1>
-    <p>Prueba Tecnica Liverpool</p>
+    <p>Liverpool Screen</p>
+
+    API:  https://shoppapp.liverpool.com.mx/appclienteservices/services/v7/plp/sf
 
   <h2>Brian Alejandro Viana Clavijo</h2>
     <h2>Arquitectura</h2>
